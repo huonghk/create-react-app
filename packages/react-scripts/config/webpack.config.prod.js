@@ -258,7 +258,12 @@ module.exports = {
       }
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
+    // Modified by @huonghk to resolve `OrderUndefinedError` issue:
+    // https://github.com/webpack-contrib/extract-text-webpack-plugin/pull/166
+    // (Modified in here and in `package.json` file)
+    new ExtractTextPlugin('static/css/[name].[contenthash:8].css', {
+      ignoreOrder: true
+    }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
