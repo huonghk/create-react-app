@@ -23,7 +23,3 @@ require('whatwg-fetch');
 // Object.assign() is commonly used with React.
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require('object-assign');
-
-// Modified by @huonghk in order to polyfill native smooth scrolling
-// https://css-tricks.com/snippets/jquery/smooth-scrolling/
-require('smoothscroll-polyfill').polyfill();
