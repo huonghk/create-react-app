@@ -168,7 +168,15 @@ module.exports = {
       // https://github.com/css-modules/css-modules
       {
         test: /\.css$/,
+        exclude: /\.module\.css$/,
         loader: 'style!css?' + cssLoaderOptions + '!postcss'
+      },
+      // Modified by @huonghk in order to switch to global scope
+      // Remember to name which file want to exclude with `.module.css` extension
+      // E.g: bootstrap.module.css
+      {
+        test: /\.module\.css$/,
+        loader: 'style!css'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
